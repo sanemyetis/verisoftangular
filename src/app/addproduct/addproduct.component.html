@@ -1,0 +1,27 @@
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="form-group ">
+           
+        </div>
+        <div class="form-group input-group-lg col-md-6" style="margin-top: 50px;">
+            <label for="inputEmail4" class="col-sm-2 col-form-label col-form-label-lg">Name</label>
+            <input class="form-control" placeholder="Name" formControlName="name">
+        </div>
+        <div class="form-group input-group-lg col-md-6">
+            <label for="inputEmail4" class="col-sm-2 col-form-label col-form-label-lg">Code</label>
+            <input class="form-control" placeholder="Code" formControlName="code">
+        </div>
+        <div class="form-group input-group-lg col-md-6">
+            <label for="inputEmail4" class="col-sm-2 col-form-label col-form-label-lg">Description</label>
+            <input class="form-control" placeholder="Description" formControlName="description">
+        </div>
+        <div class="form-group input-group-lg col-md-6">
+            <label for="inputEmail4" class="col-sm-2 col-form-label col-form-label-lg">Price</label>
+            <input class="form-control" placeholder="Price" formControlName="price">
+        </div>
+        <div class="form-group" style="margin-top: 15px;">
+            <button class="btn btn-success btn-lg" style="margin-right:5px;" routerLink="/home">Back To list</button>
+            <button class="btn btn-danger btn-block btn-lg" >Create</button>
+        </div>
+    </form>
+</div>

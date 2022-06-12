@@ -1,0 +1,27 @@
+<div class="container">
+   
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Price</th>
+            <th>Edit</th>
+            <th>Detail</th>
+        </tr>
+
+    </thead>
+    <tbody>
+    <tr *ngFor="let products of product">
+      <td>  {{products.name}}</td>
+      <td>  {{products.code}}</td>
+      <td>  {{products.price}}</td>
+      <td>
+          <i (click)="goEdit(products.id)"  class="bi bi-pencil-square" style="font-size: 25px;"></i>
+    </td>
+    <td>  <i  (click)="goDetail(products.id)"  class="bi bi-info-circle" style="font-size: 25px;"></i></td>
+    </tr>
+</tbody>
+</table>
+<button routerLink="/addproduct" class="btn btn-success btn-lg" >Add</button></div>
+<router-outlet></router-outlet>
