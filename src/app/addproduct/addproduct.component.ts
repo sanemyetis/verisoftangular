@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,16 +20,27 @@ export class AddproductComponent implements OnInit {
   ) { 
 
     this.form = this.fb.group({
-      name: [''],
-      code: [''],
-      description: [''],
-      price: [''],
+      name: ['',Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z]+$'),
+      ])
+    ],
+      code: ['',Validators.required],
+      description: ['',Validators.required],
+      price: ['',Validators.compose([
+        Validators.required,
+        Validators.pattern('^-?[0-9]\\d*(\\.\\d{1,2})?$'),
+      ])],
     });
   }
 
   ngOnInit(): void {
   }
+
+
   submitForm() {
+    if(this.form.valid)
+    {
     var formData: any = new FormData();
     formData.append('name', this.form?.get('name')?.value);
     formData.append('code', this.form?.get('code')?.value);
@@ -49,4 +60,8 @@ export class AddproductComponent implements OnInit {
         })
       });
   }
+  else{
+    window.alert('Form Invalid')
+  }
+}
 }
